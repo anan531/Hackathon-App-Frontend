@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import Navigation from './Navigation'
 
 const ViewTeam = () => {
 
@@ -35,6 +36,8 @@ const[data,changeData] = useState([])
 
   return (
     <div>
+        <Navigation/>
+        <h1 align="center">Hackathon Teams</h1>
 <div className="container">
     <div className="row g-3">
 
