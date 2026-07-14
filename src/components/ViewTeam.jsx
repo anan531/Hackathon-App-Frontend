@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const ViewTeam = () => {
 
@@ -7,7 +7,7 @@ const[data,changeData] = useState([])
 
         const fetchData = () => {
 
-            axios.get("http://localhost:3000/view-teams").then(
+            axios.post("http://localhost:3000/view-teams").then(
 
                 (response) => {
 
