@@ -137,7 +137,7 @@ const AddTeam = () => {
         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
 <label htmlFor="" className="form-label">Technology Stack</label>
-<select  id="" className="form-control" name="tech_stack" value={input.tech_stackgit } onChange={inputHandler}>
+<select  id="" className="form-control" name="tech_stack" value={input.tech_stack } onChange={inputHandler}>
     <option value="React.js" className="options">React.js</option>
     <option value="Node.js" className="options">Node.js</option>
     <option value="Flutter" className="options">Flutter</option>
