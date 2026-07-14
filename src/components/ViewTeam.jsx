@@ -34,83 +34,65 @@ const[data,changeData] = useState([])
         )
 
 
-  return (
-    <div>
-        <Navigation/>
-        <h1 align="center">Hackathon Teams</h1>
-<div className="container">
-    <div className="row g-3">
+ return (
+  <div>
+    <Navigation />
 
+<div className="container-fluid px-2 mt-4">
+               <h1 className="text-center mb-4">Hackathon Teams</h1>
 
+      <div className="row">
+        <div className="col-12">
 
- <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12"></div>
-<div className="container">
-    <div className="row g-3">
+            <div className="table-responsive">
+          <table className="table table-light table-striped">
+            <thead>
+          <tr>
+            <th>Team ID</th>
+            <th>Team Name</th>
+            <th>Team Leader Name</th>
+            <th>Leader Email</th>
+            <th>Leader Phone</th>
+            <th>College Name</th>
+            <th>No of Members</th>
+            <th>Project Title</th>
+            <th>Problem Statement Stack</th>
+            <th>Technology Stack</th>
+            <th>Mentor Name</th>
+            <th>Registration Date</th>
+            <th>Table No</th>
+          </tr>
+        </thead>
 
+        <tbody>
+          {data.map((value) => (
+            <tr key={value.team_id}>
+              <td>{value.team_id}</td>
+              <td>{value.team_name}</td>
+              <td>{value.teamLeader_name}</td>
+              <td>{value.leader_email}</td>
+              <td>{value.leader_phone}</td>
+              <td>{value.clg_name}</td>
+              <td>{value.no_of_members}</td>
+              <td>{value.proj_title}</td>
+              <td>{value.prob_stat_stack}</td>
+              <td>{value.tech_stack}</td>
+              <td>{value.mentor_name}</td>
+              <td>{value.reg_date}</td>
+              <td>{value.table_no}</td>
+            </tr>
+          ))}
+        </tbody>
+                </table>
+                </div>
 
-
- <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-
-<table className="table table-light table-striped" >
-  <thead>
-    <tr>
-      <th scope="col">Team ID</th>
-      <th scope="col">Team Name</th>
-      <th scope="col">Team Leader Name</th>
-      <th scope="col">Leader Email</th>
-      <th scope="col">Leader Phone</th>
-      <th scope="col">College Name</th>
-      <th scope="col">No of members</th>
-      <th scope="col">Project Title</th>
-      <th scope="col">Problem Statement Stack</th>
-      <th scope="col">Technology Stack</th>
-      <th scope="col">Mentor Name</th>
-      <th scope="col">Registration Date</th>
-      <th scope="col">Table No</th>
-    </tr>
-  </thead>
-  <tbody>
-             {data.map(
-
-              (value,index) => {
-
-                return(
-
-
-    <tr>
-      <th scope="row">{value["team_id"]}</th>
-      <td>{value.team_name}</td>
-      <td>{value.teamLeader_name}</td>
-      <td>{value.leader_email}</td>
-      <td>{value.leader_phone}</td>
-      <td>{value.clg_name}</td>
-      <td>{value.no_of_members}</td>
-      <td>{value.proj_title}</td>
-      <td>{value.prob_stat_stack}</td>
-      <td>{value.tech_stack}</td>
-      <td>{value.mentor_name}</td>
-      <td>{value.reg_date}</td>
-      <td>{value.table_no}</td>
-    </tr>
-                )
-
-              }
-
-            )
-            
-            
-            }
-
-  </tbody>
-</table>
-</div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+)
 
-</div>
-</div>
-  )
+  
 }
 
 export default ViewTeam
