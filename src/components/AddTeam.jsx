@@ -1,18 +1,24 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 
 const AddTeam = () => {
 
     const[input,changeInput] = useState(
-{
-  "name":"",
-  "department":"",
-  "sem":"",
-  "course":"",
-  "systemNo":"",
-  "login_time":"",
-  "logout_time":"",
-  "date":""
-}
+   {
+        "team_id":"",
+        "team_name":"",
+        "teamLeader_name":"",
+        "leader_email":"",
+        "leader_phone":"",
+        "clg_name":"",
+        "no_of_members":"",
+        "proj_title":"",
+        "prob_stat_stack":"",
+        "tech_stack":"",
+        "mentor_name":"",
+        "reg_date":"",
+        "table_no":""
+    }
 
     )
 
@@ -28,14 +34,14 @@ const AddTeam = () => {
 
                     console.log(input)
 
-                    axios.post("http://localhost:3000/add-labEntry",input).then(
+                    axios.post("http://localhost:3000/add-team",input).then(
 
                         (response) => {
 
 
                             console.log(response.data)
 
-                            alert("Log added succesfully")
+                            alert("Team added succesfully")
 
                         }
 
@@ -46,7 +52,7 @@ const AddTeam = () => {
 
                             console.error("Error adding log:",error)
 
-                            alert("Failed to add Log")
+                            alert("Failed to add team")
 
 
                         }
@@ -59,8 +65,7 @@ const AddTeam = () => {
 
   return (
     <div>
-        <Naviagtion/>
-<h1 align="center">Add Lab Entry</h1>
+<h1 align="center">Add Hackathon Team</h1>
 <div className="container">
     <div className="row g-3">
         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -70,57 +75,97 @@ const AddTeam = () => {
         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
 
-<label htmlFor="" className="form-label">Name</label>
-<input type="text" className="form-control" name="name" value={input.name} onChange={inputHandler}/>
+<label htmlFor="" className="form-label">Team Id</label>
+<input type="text" className="form-control" name="team_id" value={input.team_id} onChange={inputHandler}/>
 
         </div>
         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
 
-<label htmlFor="" className="form-label">Department</label>
-<input type="text" className="form-control" name="department" value={input.department} onChange={inputHandler}/>
+<label htmlFor="" className="form-label">Team Name</label>
+<input type="text" className="form-control" name="team_name" value={input.team_name} onChange={inputHandler}/>
 
 
         </div>
         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
 
-<label htmlFor="" className="form-label">Semester</label>
-<input type="text" className="form-control" name="sem" value={input.sem} onChange={inputHandler}/>
+<label htmlFor="" className="form-label">Team Leader Name</label>
+<input type="text" className="form-control" name="teamLeader_name" value={input.teamLeader_name} onChange={inputHandler}/>
 
         </div>
         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
-<label htmlFor="" className="form-label">Course</label>
-<input type="text" className="form-control" name="course" value={input.course} onChange={inputHandler}/>
+<label htmlFor="" className="form-label">Leader Email</label>
+<input type="email" className="form-control" name="leader_email" value={input.leader_email} onChange={inputHandler}/>
 
 
         </div>
         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
-<label htmlFor="" className="form-label">System No</label>
-<input type="text" className="form-control" name="systemNo" value={input.systemNo} onChange={inputHandler}/>
+<label htmlFor="" className="form-label">Leader Phone</label>
+<input type="tel" className="form-control" name="leader_phone" value={input.leader_phone} onChange={inputHandler}/>
 
         </div>
         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
 
-<label htmlFor="" className="form-label">Login Time</label>
-<input type="time" className="form-control" name="login_time" value={input.login_time} onChange={inputHandler}/>
+<label htmlFor="" className="form-label">College Name</label>
+<input type="text" className="form-control" name="clg_name" value={input.clg_name} onChange={inputHandler}/>
 
         </div>
         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
-<label htmlFor="" className="form-label">Logout Time</label>
-<input type="time" className="form-control" name="logout_time" value={input.logout_time} onChange={inputHandler}/>
+<label htmlFor="" className="form-label">No of members</label>
+<input type="number" className="form-control" name="no_of_members" value={input.no_of_members} onChange={inputHandler}/>
 
         </div>
         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
-<label htmlFor="" className="form-label">Date</label>
-<input type="date" className="form-control" name="date" value={input.date} onChange={inputHandler}/>
+<label htmlFor="" className="form-label">Project Title</label>
+<input type="text" className="form-control" name="proj_title" value={input.proj_title} onChange={inputHandler}/>
 
         </div>
+
+        <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
+<label htmlFor="" className="form-label">Problem Statement Stack</label>
+<input type="text" className="form-control" name="prob_stat_stack" value={input.prob_stat_stack} onChange={inputHandler}/>
+
+        </div>
+
+        <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
+<label htmlFor="" className="form-label">Technology Stack</label>
+<select  id="" className="form-control" name="tech_stack" value={input.tech_stackgit } onChange={inputHandler}>
+    <option value="React.js" className="options">React.js</option>
+    <option value="Node.js" className="options">Node.js</option>
+    <option value="Flutter" className="options">Flutter</option>
+    <option value="Python-Django" className="options">Python-Django</option>
+</select>
+        </div>
+
+        <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
+<label htmlFor="" className="form-label">Mentor Name</label>
+<input type="text" className="form-control" name="mentor_name" value={input.mentor_name} onChange={inputHandler}/>
+
+        </div>
+
+        <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
+<label htmlFor="" className="form-label">Registration Date</label>
+<input type="date" className="form-control" name="reg_date" value={input.reg_date} onChange={inputHandler}/>
+
+        </div>
+
+        <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
+<label htmlFor="" className="form-label">Table Number</label>
+<input type="number" className="form-control" name="table_no" value={input.table_no} onChange={inputHandler}/>
+
+        </div>
+
         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
 <button className="btn btn-dark">SUBMIT</button>
